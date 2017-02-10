@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 class NoteDelete extends React.Component {
 
   handleDelete() {
-    console.log('deleting');
+    console.log(`deleting ${this.props.note.id}`);
+    
   }
 
   render () {

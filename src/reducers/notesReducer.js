@@ -12,6 +12,12 @@ export default function(state=[], action){
           return action.payload
         }
       })
+
+    case 'DELETE_NOTE':
+    // delete specific note
+      return state
+
+
     default:
       return state
   }
