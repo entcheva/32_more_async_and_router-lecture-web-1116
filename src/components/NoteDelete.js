@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { deleteNote } from '../actions'
 
 class NoteDelete extends React.Component {
 
   handleDelete() {
-    console.log(`deleting ${this.props.note.id}`);
-    
+    console.log(`deleting ${this.props.note.id}`)
+    this.props.deleteNote( this.props.note.id)
+
   }
 
   render () {
@@ -27,4 +29,13 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps)(NoteDelete)
+function mapDispatchToProps(dispatch) {
+  return {
+    deleteNote: function(noteId2delete) {
+      let action = deleteNote(noteId2delete)
+      dispatch ( action )
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteDelete)

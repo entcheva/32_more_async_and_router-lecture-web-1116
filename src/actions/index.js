@@ -27,10 +27,21 @@ export function updateCurrentNote(noteId){
 
 export function deleteCurrentNote(noteId) {
   return {
-    type: 'DELETE_CURRENT_NOTE'
-    payload: noteId
+    type: 'DELETE_CURRENT_NOTE',
+    payload: ""
   }
 }
+
+export function deleteNote(noteId) {
+
+  const allNotes = axios.delete(`http://localhost:3000/api/v1/notes/${noteId}`).then(response => response.data )
+
+  return {
+    type: 'DELETE_NOTE',
+    payload: allNotes
+  }
+}
+
 
 export function updateNote(noteParams){
   axios.patch(`http://localhost:3000/api/v1/notes/${noteParams.id}`, noteParams.note )
