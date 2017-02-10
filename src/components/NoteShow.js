@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import { updateNote } from '../actions/'
+import NoteDelete from './NoteDelete'
 
 class NoteShow extends Component {
 
@@ -33,6 +33,7 @@ class NoteShow extends Component {
       <div>
         <h2>{ this.props.note.title }</h2>
         < input type='text' value={ this.props.note.body } onChange={this.handleChange.bind(this)}/>
+        < NoteDelete />
       </div>)
   }
 }
